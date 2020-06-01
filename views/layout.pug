@@ -1,0 +1,17 @@
+block variables
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="shortcut icon", href="/favicon.ico")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="stylesheet" href="/style.css")
+    title #{title}
+  body
+    div#root
+     if(opening_hours)
+      include header.pug  
+      block layout-content
+      include footer.pug
+     else
+      div.error The web application is only available in working time (Monday to Friday,  from 9 to 17) 
