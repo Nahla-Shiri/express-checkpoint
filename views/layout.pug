@@ -10,9 +10,6 @@ html
     title #{title}
   body
     div#root
-     if(opening_hours)
       include header.pug  
       block layout-content
       include footer.pug
-     else
-      div.error The web application is only available in working time (Monday to Friday,  from 9 to 17) 

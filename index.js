@@ -32,10 +32,10 @@ var requestTime = function (req, res, next) {
     const day = date.getDay();
     const hour =date.getHours();
     if(hour > 8 && hour <18 && day > 0 && day < 6)
-       {req.requestTime = true; } 
+      console.log("The web application is available");
     else
-       {req.requestTime = false;} 
-    console.log(req.requestTime);
+      res.send("The web application is only available in working time (Monday to Friday,  from 9 to 17")
+    
     next()
   }
   
@@ -46,15 +46,15 @@ var requestTime = function (req, res, next) {
  */ 
 
 app.get("/", (req, res) => {
-    res.render("index", { title: "Home" , opening_hours : req.requestTime});
+    res.render("index", { title: "Home"});
   });
 
 app.get("/services", (req, res) => {
-    res.render("services", { title: "Our services" , opening_hours : req.requestTime});
+    res.render("services", { title: "Our services"});
   }); 
 
 app.get("/contact", (req, res) => {
-    res.render("contact", { title: "Contact us" , opening_hours : req.requestTime });
+    res.render("contact", { title: "Contact us"});
   }); 
 
 /**
